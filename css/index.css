@@ -1,0 +1,204 @@
+/* ==================== VARIABLES ==================== */
+:root {
+    /* Colors */
+    --hue-color: 230; /* Blue/Navy */
+    --accent-color: #00E5FF; /* Cyan */
+    --accent-color-hover: #00b8cc;
+    
+    /* Dark Theme Default */
+    --body-bg: #0B1120;
+    --container-bg: #111827;
+    --text-color: #FFFFFF;
+    --text-color-light: #9CA3AF;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(17, 24, 39, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.05);
+
+    /* Typography */
+    --font-primary: 'Inter', sans-serif;
+    --font-heading: 'Outfit', sans-serif;
+    
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+
+    /* Z-Index */
+    --z-base: 1;
+    --z-particles: -1;
+    --z-nav: 100;
+    --z-modal: 1000;
+}
+
+/* Light Theme Variables */
+body:not(.dark-theme) {
+    --body-bg: #F3F4F6;
+    --container-bg: #FFFFFF;
+    --text-color: #1F2937;
+    --text-color-light: #6B7280;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.05);
+}
+
+/* ==================== BASE RESET ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    font-size: var(--normal-font-size);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==================== UTILITIES ==================== */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.section {
+    padding: 6rem 0 3rem;
+    scroll-margin-top: 4rem;
+}
+
+.section-title {
+    font-size: var(--h2-font-size);
+    text-align: center;
+    width: fit-content;
+    max-width: calc(100% - 3rem);
+    margin: 0 auto 3.5rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 50%;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    transform: translateX(-50%);
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #FFFFFF, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-nav {
+    background: rgba(11, 17, 32, 0.5); /* slightly different for navbar */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+body:not(.dark-theme) .glass-nav {
+    background: rgba(255, 255, 255, 0.75);
+}
+
+body:not(.dark-theme) .text-gradient {
+    background: linear-gradient(90deg, #1F2937, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Particles Container */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: var(--z-particles);
+    background-color: var(--body-bg); /* fallback */
+    pointer-events: none;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #000000;
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-outline:hover {
+    background: rgba(0, 229, 255, 0.1);
+    transform: translateY(-2px);
+}
