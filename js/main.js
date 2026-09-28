@@ -2,15 +2,17 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize AOS
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        offset: 100
-    });
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    }
 
     // 2. Initialize Particles.js
-    if(document.getElementById('particles-js')) {
+    if (document.getElementById('particles-js') && typeof particlesJS !== 'undefined') {
         particlesJS("particles-js", {
             "particles": {
                 "number": {
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3. Initialize Typed.js
-    if(document.querySelector('.typed-text')) {
+    if (document.querySelector('.typed-text') && typeof Typed !== 'undefined') {
         new Typed('.typed-text', {
             strings: ['AI & ML Graduate', 'Python Developer', 'Machine Learning Enthusiast', 'Problem Solver'],
             typeSpeed: 50,
@@ -79,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 4. Initialize Vanilla Tilt
-    if(document.querySelectorAll('[data-tilt]').length > 0) {
+    if (document.querySelectorAll('[data-tilt]').length > 0 && typeof VanillaTilt !== 'undefined') {
         VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
             max: 15,
             speed: 400,
